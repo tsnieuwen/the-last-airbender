@@ -1,1 +1,10 @@
-Total Members of <%= @nation %>: <%= @total_members %>
+Total Members of <%= @nation %>: <%= @total_members %><br><br>
+
+<p>Member information:</p>
+<% @parsed.each do |character| %>
+
+<li>Name: <%= character[:name] %>, Allies: <%= character[:allies] %>, Enemies: <%= character[:enemies] %>, Affiliation: <%= character[:affiliation] %></li>
+<% if character[:photoUrl] %>
+  <%= image_tag character[:photoUrl] %>
+<% end %>
+<% end  %>
