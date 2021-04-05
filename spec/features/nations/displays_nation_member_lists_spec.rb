@@ -38,6 +38,11 @@ RSpec.describe 'As a user' do
       visit "/"
       page.select("Fire Nation", :from => :nation)
       click_button('Search For Members')
+      expect(page).to have_content("Name", count: 25)
+      expect(page).to have_content("Allies", count: 25)
+      expect(page).to have_content("Enemies", count: 25)
+      expect(page).to have_content("Affiliation", count: 25)
+      expect(page).to have_content("Total Members of Fire nation: 97")
     end
   end
 
